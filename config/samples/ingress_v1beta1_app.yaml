@@ -1,0 +1,15 @@
+apiVersion: ingress.yuyy.com/v1beta1
+kind: App
+metadata:
+  labels:
+    app.kubernetes.io/name: app
+    app.kubernetes.io/instance: app-sample
+    app.kubernetes.io/part-of: kubebuilder-demo
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: kubebuilder-demo
+  name: app-sample
+spec:
+  image: nginx:latest
+  replicas: 2
+  enable_ingress: true
+  enable_service: true

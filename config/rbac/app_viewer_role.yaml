@@ -1,0 +1,27 @@
+# permissions for end users to view apps.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: app-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: kubebuilder-demo
+    app.kubernetes.io/part-of: kubebuilder-demo
+    app.kubernetes.io/managed-by: kustomize
+  name: app-viewer-role
+rules:
+- apiGroups:
+  - ingress.yuyy.com
+  resources:
+  - apps
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ingress.yuyy.com
+  resources:
+  - apps/status
+  verbs:
+  - get

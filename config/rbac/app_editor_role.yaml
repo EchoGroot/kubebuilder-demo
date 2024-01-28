@@ -1,0 +1,31 @@
+# permissions for end users to edit apps.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: app-editor-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: kubebuilder-demo
+    app.kubernetes.io/part-of: kubebuilder-demo
+    app.kubernetes.io/managed-by: kustomize
+  name: app-editor-role
+rules:
+- apiGroups:
+  - ingress.yuyy.com
+  resources:
+  - apps
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ingress.yuyy.com
+  resources:
+  - apps/status
+  verbs:
+  - get
